@@ -149,8 +149,10 @@ class ClientPage extends React.Component<Props> {
 
     // When client data finishes loading...
     if (!prevProps.client && client) {
-      // Update the title (calling getTitle again)
+      // Trigger an update (will resolve via getTitle)
       updateDocumentTitle();
+      // Or... you could pass a new string manually
+      updateDocumentTitle(client.name);
     }
   }
 
