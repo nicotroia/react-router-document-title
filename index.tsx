@@ -5,7 +5,7 @@ export type DocumentTitleProps = {
   updateDocumentTitle: (title?: string) => void;
 }
 type OwnProps = {};
-type Props = OwnProps & DocumentTitleProps & RouteComponentProps;
+type Props = OwnProps & RouteComponentProps;
 type State = {};
 
 const withDocumentTitle = <P extends Readonly<Props>>(
@@ -13,9 +13,9 @@ const withDocumentTitle = <P extends Readonly<Props>>(
   ignoreLocation = false
 ) => (
   WrappedComponent:
-    | React.ComponentType<Props>
-    | ComponentClass<Props>
-    | FunctionComponent<Props>
+    | React.ComponentType<Props & DocumentTitleProps>
+    | ComponentClass<Props & DocumentTitleProps>
+    | FunctionComponent<Props & DocumentTitleProps>
 ): ComponentClass<Props, State> =>
   class DocumentTitleHelper extends PureComponent<Props, State> {
     componentDidMount(): void {
