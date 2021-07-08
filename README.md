@@ -84,7 +84,6 @@ const getTitle = (pathname: string): string => {
   if (pathname === '/calendar/day') return 'Day Calendar';
   if (pathname === '/calendar/week') return 'Week Calendar';
   if (pathname === '/calendar/month') return 'Month Calendar';
-  if (pathname === URLS.createCalendarEvent) return 'Create Event';
 
   return 'Calendar';
 };
@@ -107,8 +106,10 @@ import withDocumentTitle from 'react-router-document-title';
 type Props = {...};
 
 const getTitle = (pathname: string, props: Props): string => {
+  const { client, clientId } = props;
+
   if (pathname === '/client/edit') return 'Edit Client';
-  if (pathname === `/client/${props.clientId}` && props.client)
+  if (pathname === `/client/${clientId}` && client)
     return `${client.name} Details`;
 
   return 'Client Details';
