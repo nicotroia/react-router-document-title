@@ -25,7 +25,6 @@ const withDocumentTitle = <P extends Readonly<Props>>(
     componentDidUpdate(prevProps: Props): void {
       const { location } = this.props;
 
-      // Handle browser back/forward navigation
       if (!ignoreLocation && location !== prevProps.location)
         this.handleTitle();
     }
@@ -39,7 +38,6 @@ const withDocumentTitle = <P extends Readonly<Props>>(
           ? defaultTitle(location.pathname, this.props as P)
           : defaultTitle);
 
-      // Update
       document.title = title;
     };
 
