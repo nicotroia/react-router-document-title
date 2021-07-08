@@ -128,7 +128,7 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 | Arguments | type | description |
 | --------- | ---- | ----------- |
-| defaultTitle | string \| function | Static string used to update document title when the page mounts. OR a function with signature `(pathname: string, props: P) => string` |
+| defaultTitle | string \| function | Simple string OR function with signature `(pathname: string, props: P) => string` |
 | ignoreLocation | boolean | If `true` will ignore updating the title when location changes (default `false`) |
 
 <p>&nbsp;</p>
