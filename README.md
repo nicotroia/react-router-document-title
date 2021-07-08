@@ -80,7 +80,7 @@ Instead of passing a static string, you may pass a function that accepts the cur
 
 import withDocumentTitle from 'react-router-document-title';
 
-const getTitle = (pathname: string): string => {
+const getTitle = (pathname) => {
   if (pathname === '/calendar/day') return 'Day Calendar';
   if (pathname === '/calendar/week') return 'Week Calendar';
   if (pathname === '/calendar/month') return 'Month Calendar';
@@ -103,9 +103,7 @@ export default withDocumentTitle(getTitle)(CalendarPage);
 
 import withDocumentTitle from 'react-router-document-title';
 
-type Props = {...};
-
-const getTitle = (pathname: string, props: Props): string => {
+const getTitle = (pathname, props) => {
   const { client } = props;
 
   if (pathname === '/client/create') return 'New Client';
@@ -148,7 +146,7 @@ class ClientPage extends React.Component<Props> {
   componentDidUpdate(prevProps) {
     const { client, updateDocumentTitle } = this.props;
 
-    // When client data finishes loading...
+    // When the client data arrives...
     if (!prevProps.client && client) {
       // Trigger an update (will resolve via getTitle)
       updateDocumentTitle();
