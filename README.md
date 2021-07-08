@@ -71,7 +71,7 @@ export default ConnectedClientPage;
 
 ## Dynamic titles
 
-Instead of passing a static string, you may pass a function that accepts the current location and component props as arguments. This means the handler does not need to live within the component itself.
+Instead of passing a static string, you may pass a function that accepts the current location and component props as arguments. This means the handler does not need to live within the component itself and can be easily tested.
 
 
 ### Using pathname only
