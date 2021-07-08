@@ -18,13 +18,13 @@ It updates the page `document.title` (it appears on your browser tab) on mount a
 
 ## Usage
 
-```
+```JS
 withDocumentTitle('About Us')(AboutPage)
 ```
 
 <span>or</span>
 
-```
+```JS
 withDocumentTitle(getTitle)(AboutPage)
 ```
 
@@ -32,7 +32,7 @@ withDocumentTitle(getTitle)(AboutPage)
 
 ### With basic React components
 
-```TS
+```JSX
 
 import withDocumentTitle from 'react-router-document-title';
 
@@ -46,7 +46,7 @@ export default withDocumentTitle('Client Details')(ClientPage);
 
 ### With Redux compose
 
-```TS
+```JSX
 
 export default compose(withRouter, withDocumentTitle('About Us'))(AboutPage);
 
@@ -54,7 +54,7 @@ export default compose(withRouter, withDocumentTitle('About Us'))(AboutPage);
 
 ### With connected React Redux components
 
-```TS
+```JSX
 
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -80,7 +80,7 @@ Instead of passing a static string, you may pass a function that accepts the cur
 
 ### Using pathname only
 
-```TS
+```JSX
 
 import withDocumentTitle from 'react-router-document-title';
 
@@ -105,7 +105,7 @@ export default withDocumentTitle(getTitle)(CalendarPage);
 
 You can also access your component's props for more advanced logic
 
-```TS
+```JSX
 
 import withDocumentTitle from 'react-router-document-title';
 
