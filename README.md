@@ -1,7 +1,7 @@
 <div align="center">
   <h1>react-router-document-title</h1>
   
-  <div>Composable HOC for quickly updating `document.title`</div>
+  Composable HOC for easily updating `document.title` on location change
 </div>
 
 ## Installation
