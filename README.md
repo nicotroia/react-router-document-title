@@ -133,7 +133,7 @@ An `updateDocumentTitle` prop is injected into your component if you need to man
 ```JSX
 import { DocumentTitleProps } from 'react-router-document-title';
 
-type OwnProps = {};
+type OwnProps = { client: any };
 type Props = DocumentTitleProps & OwnProps;
 
 const getTitle = (pathname: string, props: Props): string => {
