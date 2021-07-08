@@ -10,9 +10,13 @@
 npm install --save react-router-document-title
 ```
 
-## Usage
+## What it does
 
-Just wrap your top-level router components with the `withDocumentTitle` higher-order component. The component will update the page title on mount and when the router location updates. (So this assumes your component receives react-router `RouteComponentProps` such as location and history.)
+It updates the page `document.title` (it appears on your browser tab) on mount and on location updates. Wrap your top-level router components using `withDocumentTitle` higher-order component. It listens for location changes, so it assumes react-router `RouteComponentProps` are present.
+
+<p>&nbsp;</p>
+
+## Usage
 
 ```
 withDocumentTitle('About Us')(AboutPage)
@@ -28,7 +32,7 @@ withDocumentTitle(getTitle)(AboutPage)
 
 ### With basic React components
 
-```JSX
+```TS
 
 import withDocumentTitle from 'react-router-document-title';
 
@@ -42,7 +46,7 @@ export default withDocumentTitle('Client Details')(ClientPage);
 
 ### With Redux compose
 
-```JSX
+```TS
 
 export default compose(withRouter, withDocumentTitle('About Us'))(AboutPage);
 
@@ -50,7 +54,7 @@ export default compose(withRouter, withDocumentTitle('About Us'))(AboutPage);
 
 ### With connected React Redux components
 
-```JSX
+```TS
 
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -76,7 +80,7 @@ Instead of passing a static string, you may pass a function that accepts the cur
 
 ### Using pathname only
 
-```JSX
+```TS
 
 import withDocumentTitle from 'react-router-document-title';
 
@@ -101,7 +105,7 @@ export default withDocumentTitle(getTitle)(CalendarPage);
 
 You can also access your component's props for more advanced logic
 
-```JSX
+```TS
 
 import withDocumentTitle from 'react-router-document-title';
 
@@ -130,7 +134,7 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 An `updateDocumentTitle` prop is injected into your component if you need to manually trigger updates based on other logic. In this example the title will be "Client Details" while waiting for a fetch to complete, then it will display the client's name.
 
-```JSX
+```TS
 import { DocumentTitleProps } from 'react-router-document-title';
 
 type Client = { name: string };

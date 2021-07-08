@@ -16,7 +16,8 @@
   "keywords": [
     "react",
     "react-router",
-    "javascript"
+    "javascript",
+    "typescript"
   ],
   "author": "nicotroia",
   "license": "MIT",
