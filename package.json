@@ -1,6 +1,6 @@
 {
   "name": "react-router-document-title",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Composable React HOC for updating the document title",
   "main": "build/index.js",
   "types": "build/index.d.ts",

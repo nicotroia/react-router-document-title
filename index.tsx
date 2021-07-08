@@ -1,14 +1,12 @@
 import React, { ComponentClass, FunctionComponent, PureComponent } from 'react';
 import { RouteComponentProps } from 'react-router';
 
-type PageTitleProps = {
+export type PageTitleProps = {
   updateTitle: (title?: string) => void;
 }
 type OwnProps = {};
 type Props = OwnProps & PageTitleProps & RouteComponentProps;
-type State = {
-  timeout: number;
-};
+type State = {};
 
 const withDocumentTitle = <P extends Readonly<Props>>(
   defaultTitle: string | ((location: string, props: P) => string),
@@ -20,10 +18,6 @@ const withDocumentTitle = <P extends Readonly<Props>>(
     | FunctionComponent<Props>
 ): ComponentClass<Props, State> =>
   class PageTitleHelper extends PureComponent<Props, State> {
-    state = {
-      timeout: 0,
-    };
-
     componentDidMount(): void {
       this.handlePageTitle();
     }
