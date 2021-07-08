@@ -99,7 +99,7 @@ export default withDocumentTitle(getTitle)(CalendarPage);
 
 ### Using pathname and props
 
-You also can access your component's props for more advanced logic
+You can also access your component's props for more advanced logic
 
 ```JSX
 
@@ -128,7 +128,7 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 ## Manually updating the title
 
-An `updateDocumentTitle` prop is also injected into your component, so you can manually trigger updates when necessary. In this example the title will be "Client Details" while waiting for a fetch to complete, then it will display the client's name.
+An `updateDocumentTitle` prop is injected into your component if you need to manually trigger updates based on other logic. In this example the title will be "Client Details" while waiting for a fetch to complete, then it will display the client's name.
 
 ```JSX
 import { DocumentTitleProps } from 'react-router-document-title';
@@ -156,6 +156,15 @@ class ClientPage extends React.Component<Props> {
       // Or... you could pass a new string manually
       updateDocumentTitle(`Ding! ${client.name}`);
     }
+  }
+
+  // Or change the title following an interaction
+  handleClick = () => this.props.updateDocumentTitle('clicked!');
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>Update title</button>
+    )
   }
 
   ...
