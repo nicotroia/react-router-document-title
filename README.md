@@ -99,6 +99,8 @@ export default withDocumentTitle(getTitle)(CalendarPage);
 
 ### Using pathname and props
 
+You also can access your component's props for more advanced logic
+
 ```JSX
 
 import withDocumentTitle from 'react-router-document-title';
@@ -107,6 +109,7 @@ const getTitle = (pathname, props) => {
   const { client } = props;
 
   if (pathname === '/client/create') return 'New Client';
+  // Write the client's name
   if (client && pathname === `/client/${client.id}`)
     return `${client.name} Details`;
 
