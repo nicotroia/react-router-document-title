@@ -106,10 +106,10 @@ import withDocumentTitle from 'react-router-document-title';
 type Props = {...};
 
 const getTitle = (pathname: string, props: Props): string => {
-  const { client, clientId } = props;
+  const { client } = props;
 
-  if (pathname === '/client/edit') return 'Edit Client';
-  if (pathname === `/client/${clientId}` && client)
+  if (pathname === '/client/create') return 'New Client';
+  if (client && pathname === `/client/${client.id}`)
     return `${client.name} Details`;
 
   return 'Client Details';
@@ -153,7 +153,7 @@ class ClientPage extends React.Component<Props> {
       // Trigger an update (will resolve via getTitle)
       updateDocumentTitle();
       // Or... you could pass a new string manually
-      updateDocumentTitle(client.name);
+      updateDocumentTitle(`Ding! ${client.name}`);
     }
   }
 
@@ -168,7 +168,7 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 | Arguments | type | description |
 | --------- | ---- | ----------- |
-| defaultTitle | string \| function | Simple string OR function with signature `(pathname: string, props: P) => string` |
+| defaultTitle | string \| function | Simple string or function that returns a string to be shown in the browser tab. Function has signature `(pathname: string, props: P) => string` |
 | ignoreLocation | boolean | If `true` will ignore updating the title when location changes (default `false`) |
 
 <p>&nbsp;</p>
