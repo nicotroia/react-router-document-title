@@ -6,7 +6,7 @@
 
 ## Installation
 
-```
+```JS
 npm install --save react-router-document-title
 ```
 
