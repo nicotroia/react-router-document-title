@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es2015",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowJs": false,
+    "strict": true,
+    "declaration": true,
+    "outDir": "./build",
+    "jsx": "react",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+  },
+  "include": [
+    "./index.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

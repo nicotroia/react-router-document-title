@@ -1,0 +1,36 @@
+{
+  "name": "react-router-document-title",
+  "version": "1.0.0",
+  "description": "Composable React HOC for updating the document title",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "types": "tsc -p ./tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicotroia/react-router-document-title.git"
+  },
+  "keywords": [
+    "react",
+    "react-router",
+    "javascript"
+  ],
+  "author": "nicotroia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicotroia/react-router-document-title/issues"
+  },
+  "homepage": "https://github.com/nicotroia/react-router-document-title#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.14",
+    "@types/react-router": "^5.1.16",
+    "typescript": "^4.3.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-router": "*"
+  }
+}
