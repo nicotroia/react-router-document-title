@@ -124,6 +124,43 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 <p>&nbsp;</p>
 
+## Manually updating the title
+
+An `updateDocumentTitle` prop is also injected into your component, so you can manually trigger updates when necessary. In this example the title will be "Client Details" while waiting for a fetch to complete, then it will display the client's name.
+
+```JSX
+import { DocumentTitleProps } from 'react-router-document-title';
+
+type OwnProps = {};
+type Props = DocumentTitleProps & OwnProps;
+
+const getTitle = (pathname: string, props: Props): string => {
+  const { client } = props;
+
+  if (client) return `${client.name}`;
+
+  return 'Client Details';
+}
+
+class ClientPage extends React.Component<Props> {
+  
+  componentDidUpdate(prevProps) {
+    const { client, updateDocumentTitle } = this.props;
+
+    // When client data finishes loading...
+    if (!prevProps.client && client) {
+      // Update the title (calling getTitle again)
+      updateDocumentTitle();
+    }
+  }
+
+  ...
+}
+
+export default withDocumentTitle(getTitle)(ClientPage);
+
+```
+
 ## Configuration
 
 | Arguments | type | description |

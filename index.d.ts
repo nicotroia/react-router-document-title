@@ -1,3 +1,3 @@
-export type PageTitleProps = {
-  updateTitle: (title?: string) => void;
+export type DocumentTitleProps = {
+  updateDocumentTitle: (title?: string) => void;
 }

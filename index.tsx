@@ -1,11 +1,11 @@
 import React, { ComponentClass, FunctionComponent, PureComponent } from 'react';
 import { RouteComponentProps } from 'react-router';
 
-export type PageTitleProps = {
-  updateTitle: (title?: string) => void;
+export type DocumentTitleProps = {
+  updateDocumentTitle: (title?: string) => void;
 }
 type OwnProps = {};
-type Props = OwnProps & PageTitleProps & RouteComponentProps;
+type Props = OwnProps & DocumentTitleProps & RouteComponentProps;
 type State = {};
 
 const withDocumentTitle = <P extends Readonly<Props>>(
@@ -17,9 +17,9 @@ const withDocumentTitle = <P extends Readonly<Props>>(
     | ComponentClass<Props>
     | FunctionComponent<Props>
 ): ComponentClass<Props, State> =>
-  class PageTitleHelper extends PureComponent<Props, State> {
+  class DocumentTitleHelper extends PureComponent<Props, State> {
     componentDidMount(): void {
-      this.handlePageTitle();
+      this.handleTitle();
     }
 
     componentDidUpdate(prevProps: Props): void {
@@ -27,10 +27,10 @@ const withDocumentTitle = <P extends Readonly<Props>>(
 
       // Handle browser back/forward navigation
       if (!ignoreLocation && location !== prevProps.location)
-        this.handlePageTitle();
+        this.handleTitle();
     }
 
-    handlePageTitle = (_title?: string): void => {
+    handleTitle = (_title?: string): void => {
       const { location } = this.props;
 
       const title =
@@ -39,13 +39,13 @@ const withDocumentTitle = <P extends Readonly<Props>>(
           ? defaultTitle(location.pathname, this.props as P)
           : defaultTitle);
 
-      // Update title
+      // Update
       document.title = title;
     };
 
     render(): JSX.Element {
       return (
-        <WrappedComponent {...this.props} updateTitle={this.handlePageTitle} />
+        <WrappedComponent {...this.props} updateDocumentTitle={this.handleTitle} />
       );
     }
   };
