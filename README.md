@@ -4,17 +4,16 @@
   Composable HOC for easily updating `document.title` on location change
 </div>
 
+## What it does
+
+It automatically updates the page `document.title` (label on your browser's tab) on component mount, and on location updates for SPAs using react-router. Just wrap your top-level router components using the `withDocumentTitle` higher-order component.
+
+
 ## Installation
 
 ```JS
 npm install --save react-router-document-title
 ```
-
-## What it does
-
-It updates the page `document.title` (it appears on your browser tab) on mount and on location updates. Wrap your top-level router components using `withDocumentTitle` higher-order component. It listens for location changes, so it assumes react-router `RouteComponentProps` are present.
-
-<p>&nbsp;</p>
 
 ## Usage
 
@@ -28,7 +27,7 @@ withDocumentTitle('About Us')(AboutPage)
 withDocumentTitle(getTitle)(AboutPage)
 ```
 
-<p>&nbsp;</p>
+## Examples
 
 ### With basic React components
 
@@ -128,7 +127,6 @@ export default withDocumentTitle(getTitle)(ClientPage);
 
 ```
 
-<p>&nbsp;</p>
 
 ## Manually updating the title
 
