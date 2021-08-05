@@ -6,7 +6,7 @@
 
 ## What it does
 
-It automatically updates the page `document.title` (label on your browser's tab) on component mount, and on location updates for SPAs using react-router. Just wrap your top-level router components using the `withDocumentTitle` higher-order component.
+Automatically updates the tab (`document.title`) on component mount and subsequent location updates (for SPAs using react-router). Just wrap your top-level router components using the `withDocumentTitle` higher-order component.
 
 
 ## Installation
